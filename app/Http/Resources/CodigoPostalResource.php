@@ -16,8 +16,8 @@ class CodigoPostalResource extends JsonResource
     {
         return [
             'key' => $this->id_asenta_cpcons,
-            'name' => mb_strtoupper($this->d_asenta),
-            'zone_type' => mb_strtoupper($this->d_zona),
+            'name' => strtoupper($this->d_asenta),
+            'zone_type' => strtoupper($this->d_zona),
             'settlement_type' => [
                 'name' => $this->d_tipo_asenta
             ],

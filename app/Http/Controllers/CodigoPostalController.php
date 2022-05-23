@@ -15,16 +15,16 @@ class CodigoPostalController extends Controller
         if (count($codigos) > 0) {
             $response = [
                 'zip_code' => str_pad($codigos[0]->d_codigo, 5, "0", STR_PAD_LEFT),
-                'locality' => is_null($codigos[0]->d_ciudad) ? '' : mb_strtoupper($codigos[0]->d_ciudad),
+                'locality' => is_null($codigos[0]->d_ciudad) ? '' : strtoupper($codigos[0]->d_ciudad),
                 'federal_entity' => [
                     'key' => $codigos[0]->c_estado,
-                    'name' => mb_strtoupper($codigos[0]->d_estado),
+                    'name' => strtoupper($codigos[0]->d_estado),
                     'code' => null,
                 ],
                 'settlements' => new CodigoPostalCollection($codigos),
                 'municipality' => [
                     'key' => $codigos[0]->c_mnpio,
-                    'name' => mb_strtoupper($codigos[0]->d_mnpio),
+                    'name' => strtoupper($codigos[0]->d_mnpio),
                 ]
             ];
 
